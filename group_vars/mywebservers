@@ -1,4 +1,4 @@
 ubuntu_webserver_pkg: apache2
 redhat_webserver_pkg: httpd
 ubuntu_java_pkg: openjdk-17-jdk
-redhat_java_pkg:java-17-amazon-corretto
+redhat_java_pkg: java-17-amazon-corretto
