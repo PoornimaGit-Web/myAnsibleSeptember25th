@@ -1,0 +1,15 @@
+---
+- hosts: mywebservers
+  become: yes
+  gather_facts: yes
+  tasks:
+  - name: i want to install java on ubuntu webserver
+    apt:
+      name: "{{ ubuntu_java_pkg }}"
+      state: present
+    when: ansible_facts['os_family'] == "Debian"
+  - name: i want to install java on redhat webserver
+    dnf:
+      name: "{{ redhat_java_pkg }}"
+      state: present
+    when: ansible_facts['os_family'] == "RedHat"
