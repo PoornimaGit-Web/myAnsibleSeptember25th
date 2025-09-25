@@ -1,2 +1,2 @@
-ubuntu_webserver_pkg=apache2
-redhat_webserver_pkg=httpd
+ubuntu_webserver_pkg: apache2
+redhat_webserver_pkg: httpd
