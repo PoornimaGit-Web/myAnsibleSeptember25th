@@ -1,0 +1,27 @@
+---
+- hosts: all
+  become: yes
+  gather_facts: yes
+  tasks:
+    - name: i want to install apache2 webserver
+      apt:
+        name: "{{ ubuntu_webserver_pkg }}"
+        state: present
+      when: ansible_facts['os_family'] == "Debian"
+    - name: i want to start apache2 webserver
+      service:
+        name: "{{ ubuntu_webserver_pkg }}"
+        state: started
+        enabled: yes
+      when: ansible_facts['os_family'] == "Debian"
+    - name: i want to install httpd webserver
+      dnf:
+        name: "{{ redhat_webserver_pkg }}"
+        state: present
+      when: ansible_facts['os_family'] == "RedHat"
+    - name: i want to start httpd webserver
+      service:
+        name: "{{ redhat_webserver_pkg }}"
+        state: started
+        enabled: yes
+      when: ansible_facts['os_family'] == "RedHat"
