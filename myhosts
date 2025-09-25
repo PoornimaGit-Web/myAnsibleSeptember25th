@@ -1,15 +1,12 @@
 
-[webservers]
+[mywebservers]
 172.31.36.43
 172.31.40.200
-[appservers]
+[myappservers]
 172.31.36.43
 172.31.40.200
-[dbservers]
+[mydbservers]
 172.31.36.43
 172.31.40.200
 
-[webservers:vars]
-var=value
-ubuntu_webserver_pkg=apache2
-webpackonredhat=httpd
+
