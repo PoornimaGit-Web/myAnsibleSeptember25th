@@ -1,5 +1,5 @@
 ---
-- hosts: myhosts
+- hosts: 172.31.36.43
   become: yes
   gather_facts: yes
   tasks:
