@@ -3,9 +3,22 @@
   become: yes
   gather_facts: yes
   tasks:
-   - include_tasks: myfile.yml
-   - name: install webservers
-     apt:
+  - include_tasks: myfile.yml
+  - name: install webservers
+    apt:
       name: apache2
       state: present
-     when: ansible_facts['os_family'] == "Debian"
+    when: ansible_facts['os_family'] == "Debian"
+  - name: i want to create a folder
+    file: 
+      path: /home/maha/myfolder
+      state: directory
+  - name: i want to create a file inside the folder
+    copy:
+      src: mystaticfile
+      dest: /home/maha/myfolder
+  - name: i want to fetch the file from internet to ansible control node
+    get_url:
+      url: https://www.w3.org/TR/PNG/iso_8859-1.txt
+      dest: /home/maha/myfolder/mywebfile.txt
+    force_basic_auth: yes
