@@ -5,10 +5,10 @@
   tasks:
     - name: I want to execute direct linux command
       command: hostname -f
-      register: 
+      register: myresult
     - name: I want to display first task result
       debug:
-        var: task result"{{myresult}}"
+        msg: "{{myresult}}"
     - name: install git package
       apt:
         name: git
