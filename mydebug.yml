@@ -6,14 +6,17 @@
     - name: I want to execute direct linux command
       command: hostname -f
       register: myresult
+      
     - name: I want to display first task result
       debug:
         msg: "{{myresult}}"
+
     - name: install git package
       apt:
         name: git
         state: present
       when: myresult.stderr == ""
+
     - name: install tree package
       apt:
         name: tree
