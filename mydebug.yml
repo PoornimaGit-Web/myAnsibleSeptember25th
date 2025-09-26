@@ -13,14 +13,6 @@
         msg: "{{myresult}}"
       when: ansible_facts['os_family'] == "Debian"
 
-    - name: Display command output
-      debug:
-        msg: "Hostname: {{myresult.stdout}}"
-        when: ansible_facts['os_family'] == "Debian"
-    - name: Display any errors
-      debug:
-        msg: "Errors: {{myresult.stderr}}"
-      when: ansible_facts['os_family'] == "Debian"
     - name: Install git package when hostname command succeeds
       apt:
         name: git
