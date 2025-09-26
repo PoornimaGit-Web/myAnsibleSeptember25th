@@ -11,4 +11,13 @@
     - name: I want to display first task result
       debug:
         msg: "{{myresult}}"
-     
+    - name: install git
+      apt:
+       name: git
+       state: present
+      when: myresult.stderr=="" and ansible_facts['os_family'] == "Debian"
+    - name: install tree
+      apt:
+       name: tree
+       state: present
+      when: myresult.stderr!="" and ansible_facts['os_family'] == "Debian"
