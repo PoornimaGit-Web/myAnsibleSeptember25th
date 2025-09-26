@@ -11,18 +11,4 @@
     - name: I want to display first task result
       debug:
         msg: "{{myresult}}"
-      when: ansible_facts['os_family'] == "Debian"
-
-    - name: Install git package when hostname command succeeds
-      apt:
-        name: git
-        state: present
-        update_cache: yes
-      when: myresult.stderr == "" and ansible_facts['os_family'] == "Debian"
-      
-    - name: Install tree package when hostname command succeeds
-      apt:
-        name: tree
-        state: present
-        update_cache: yes
-      when: myresult.stderr != "" and ansible_facts['os_family'] == "Debian"
+     
