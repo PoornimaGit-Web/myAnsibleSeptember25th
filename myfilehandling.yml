@@ -22,3 +22,7 @@
       url: https://www.w3.org/TR/PNG/iso_8859-1.txt
       dest: /home/maha/myfolder/mywebfile.txt
     force_basic_auth: yes
+  - name: i want to copy index.html to webserver folder
+    copy:
+      src: mywebfile.txt
+      dest: /var/www/html/index.html
